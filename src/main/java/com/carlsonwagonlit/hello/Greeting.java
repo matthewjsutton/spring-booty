@@ -1,5 +1,8 @@
 package com.carlsonwagonlit.hello;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Shamelessly copied from: https://spring.io/guides/gs/rest-service/
  */
@@ -17,6 +20,8 @@ public class Greeting {
         return id;
     }
 
+    @JsonProperty(required = true)
+    @ApiModelProperty(notes = "The name of the user", required = true)
     public String getContent() {
         return content;
     }
