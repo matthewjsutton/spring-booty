@@ -9,14 +9,15 @@
 
 ## Run locally
 
-Build
-* ./gradlew build
+Build: `./gradlew build`
 
-Run:
-* ./gradlew bootRun
+Build docker image: `./gradlew buildDocker`
 
-Swagger:
-* http://localhost:8080/swagger-ui.html
+Run: `./gradlew bootRun`
+
+Run docker image: `docker run -p 8080:8080 spring-booty:0.0.1-SNAPSHOT`
+
+Swagger: `http://localhost:8080/swagger-ui.html`
 
 ## DIY
 
