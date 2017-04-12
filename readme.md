@@ -36,7 +36,6 @@ Remove dangling images: `docker rmi $(docker images --filter "dangling=true" -q 
 4. Add docker integration
     * https://geowarin.github.io/spring-boot-app-in-docker-image.html
 
-
 ## Next
 
 * Tests
