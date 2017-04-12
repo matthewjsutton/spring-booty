@@ -11,13 +11,19 @@
 
 Build: `./gradlew build`
 
-Build docker image: `./gradlew buildDocker`
-
 Run: `./gradlew bootRun`
+
+Swagger: `http://localhost:8080/swagger-ui.html`
+
+## Docker
+
+Build docker image: `./gradlew buildDocker`
 
 Run docker image: `docker run -p 8080:8080 spring-booty:0.0.1-SNAPSHOT`
 
-Swagger: `http://localhost:8080/swagger-ui.html`
+Remove stopped docker containers: `docker rm $(docker ps -a -q)`
+
+Remove dangling images: `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
 
 ## DIY
 
@@ -29,3 +35,12 @@ Swagger: `http://localhost:8080/swagger-ui.html`
     * http://heidloff.net/article/usage-of-swagger-2-0-in-spring-boot-applications-to-document-apis/
 4. Add docker integration
     * https://geowarin.github.io/spring-boot-app-in-docker-image.html
+
+
+## Next
+
+* Tests
+* Jenkins configuration in project
+* Logging
+* Configuration service / Spring Cloud Consul
+* Health check
