@@ -4,14 +4,19 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 		classpath 'se.transmode.gradle:gradle-docker:1.2'
+		classpath "net.ltgt.gradle:gradle-apt-plugin:0.10"
 	}
 }
 
 apply plugin: 'java'
+apply plugin: "net.ltgt.apt"
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
@@ -24,10 +29,6 @@ repositories {
 	mavenCentral()
 }
 
-configurations {
-	apt
-}
-
 dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
 	compile "io.springfox:springfox-swagger2:2.6.1"
@@ -37,10 +38,6 @@ dependencies {
 	apt "com.google.auto.value:auto-value:1.2"
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-
-compileJava {
-	options.annotationProcessorPath = configurations.apt
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
