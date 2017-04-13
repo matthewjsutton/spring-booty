@@ -43,3 +43,4 @@ Remove dangling images: `docker rmi $(docker images --filter "dangling=true" -q 
 * Logging
 * Configuration service / Spring Cloud Consul
 * Health check
+* AutoValue
