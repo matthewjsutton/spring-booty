@@ -1,4 +1,38 @@
-[
-  {},
-  {}
-]
+{
+  "list": [
+    {
+      "topGuid": "#GUID/CT-",
+      "subGuid": "#GUID/CT-##:####/SU-",
+      "travelerType": "?TRVLR TYPE",
+      "airfareReasonCode": "?X/-FS",
+      "lowestFare": "?X/-LP",
+      "costCenter": "?U*9",
+      "travelReason": "?U*10",
+      "hotelReasonCode": "?U*11",
+      "carReasonCode": "?U*12",
+      "authorizerEmail": "?U*4",
+      "travelerEmail": "?PAX*E-",
+      "arrangerEmail": "?ARR*E-",
+      "airfareAuthorization": "",
+      "carRate": "",
+      "hotelRate": ""
+    },
+    {
+      "topGuid": "#GUID/CT-",
+      "subGuid": "#GUID/CT-##:####/SU-",
+      "travelerType": "?TRVLR TYPE",
+      "airfareReasonCode": "?X/-FS",
+      "lowestFare": "?X/-LP",
+      "costCenter": "?U*9",
+      "travelReason": "?U*10",
+      "hotelReasonCode": "?U*11",
+      "carReasonCode": "?U*12",
+      "authorizerEmail": "?U*4",
+      "travelerEmail": "?PAX*E-",
+      "arrangerEmail": "?ARR*E-",
+      "airfareAuthorization": "",
+      "carRate": "",
+      "hotelRate": ""
+    }
+  ]
+}

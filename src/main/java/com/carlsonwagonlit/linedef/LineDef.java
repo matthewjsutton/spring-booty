@@ -140,4 +140,25 @@ public class LineDef {
     public void setHotelRate(String hotelRate) {
         this.hotelRate = hotelRate;
     }
+
+    @Override
+    public String toString() {
+        return "LineDef{" +
+                "topGuid='" + topGuid + '\'' +
+                ", subGuid='" + subGuid + '\'' +
+                ", travelerType='" + travelerType + '\'' +
+                ", airfareReasonCode='" + airfareReasonCode + '\'' +
+                ", lowestFare='" + lowestFare + '\'' +
+                ", costCenter='" + costCenter + '\'' +
+                ", travelReason='" + travelReason + '\'' +
+                ", hotelReasonCode='" + hotelReasonCode + '\'' +
+                ", carReasonCode='" + carReasonCode + '\'' +
+                ", authorizerEmail='" + authorizerEmail + '\'' +
+                ", travelerEmail='" + travelerEmail + '\'' +
+                ", arrangerEmail='" + arrangerEmail + '\'' +
+                ", airfareAuthorization='" + airfareAuthorization + '\'' +
+                ", carRate='" + carRate + '\'' +
+                ", hotelRate='" + hotelRate + '\'' +
+                '}';
+    }
 }

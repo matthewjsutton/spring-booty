@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan("com.carlsonwagonlit.hello")
+@ComponentScan({"com.carlsonwagonlit.hello", "com.carlsonwagonlit.linedef"})
 public class SpringBootyApplication {
 
 	public static void main(String[] args) {
