@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Service
 public class LineDefService {
-    private final Logger LOG = LoggerFactory.getLogger(LineDefService.class);
+    private final Logger LOG = LoggerFactory.getLogger(getClass());
 
     //private final FooProperties propey
     // rties;
