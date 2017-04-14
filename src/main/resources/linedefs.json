@@ -3,6 +3,7 @@
     {
       "topGuid": "#GUID/CT-",
       "subGuid": "#GUID/CT-##:####/SU-",
+      "gdsCode": "sa",
       "travelerType": "?TRVLR TYPE",
       "airfareReasonCode": "?X/-FS",
       "lowestFare": "?X/-LP",
@@ -13,9 +14,9 @@
       "authorizerEmail": "?U*4",
       "travelerEmail": "?PAX*E-",
       "arrangerEmail": "?ARR*E-",
-      "airfareAuthorization": "",
-      "carRate": "",
-      "hotelRate": ""
+      "arrangerEmails1x": ["?ARR1.x*E-", ""],
+      "arrangerEmails2x": [""],
+      "arrangerEmails3x": [""]
     },
     {
       "topGuid": "#GUID/CT-",
