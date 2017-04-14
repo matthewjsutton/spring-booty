@@ -1,5 +1,6 @@
 package com.carlsonwagonlit.linedef;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
 import org.slf4j.Logger;
@@ -18,37 +19,18 @@ import java.util.List;
 public class LineDefService {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-    //private final FooProperties propey
-    // rties;
-
-//    @Autowired
-//    public MyService(FooProperties properties) {
-//        //this.properties = properties;
-
-
     @PostConstruct
     public void postConstruct() throws IOException {
-        LOG.info("post construct");
         URL resource = Resources.getResource("linedefs.json");
 //        String string = Resources.toString(resource, Charsets.UTF_8);
 //        LOG.info("Hello, here's my file=" + string);
-
-
         //        File file = new ClassPathResource("linedefs.json").getFile();
+
+        TypeReference<List<LineDef>> listType = new TypeReference<List<LineDef>>() {
+        };
         ObjectMapper mapper = new ObjectMapper();
-        LineDefs lineDefs = mapper.readValue(resource, LineDefs.class);
+        List<LineDef> lineDefs = mapper.readValue(resource, listType);
         LOG.info("Now my linedefs=" + lineDefs);
-    }
-
-    private static class LineDefs {
-        public List<LineDef> list;
-
-        @Override
-        public String toString() {
-            return "LineDefs{" +
-                    "list=" + list +
-                    '}';
-        }
     }
 
 }
