@@ -20,8 +20,8 @@ public class LineDefController {
     @Autowired
     private LineDefRepo repo;
 
-    @ApiOperation(value = "getLineDef", nickname = "getLineDef")
     @RequestMapping(method = RequestMethod.GET, path = "/lineDef", produces = "application/json")
+    @ApiOperation(value = "getLineDef", nickname = "getLineDef")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = LineDef.class),
             @ApiResponse(code = 404, message = "LineDef not found")})
@@ -30,6 +30,7 @@ public class LineDefController {
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "No LineDef found")
+    @SuppressWarnings("serial")  // this exception will not be serialized
     private static class LineDefNotFound extends RuntimeException {
     }
 }

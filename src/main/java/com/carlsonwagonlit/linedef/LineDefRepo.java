@@ -37,10 +37,15 @@ class LineDefRepo {
         LinkedHashMap<LineDefId, LineDef> map = new LinkedHashMap<>(lineDefs.size());
         for (LineDef lineDef : lineDefs) {
             LineDefId id = new LineDefId(lineDef.getSubGuidId(), lineDef.getGdsId());
-            map.put(id, lineDef);
+            LineDef prev = map.put(id, lineDef);
+            if (prev != null) {
+                throw new IllegalArgumentException("Duplicate subGuidId=" + lineDef.getSubGuidId() + " gdsId=" + lineDef.getGdsId());
+            }
         }
 
         lineDefMap = Collections.unmodifiableMap(map);
+
+        LOG.info("LineDefs parsed=" + lineDefMap.size());
     }
 
     int size() {
