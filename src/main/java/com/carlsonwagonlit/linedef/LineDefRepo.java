@@ -1,16 +1,15 @@
 package com.carlsonwagonlit.linedef;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
+import com.fasterxml.jackson.core.type.*;
+import com.fasterxml.jackson.databind.*;
+import org.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 
-import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
+import javax.annotation.*;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 /**
  * Repository for the LineDefs defined in the JSON file
@@ -19,14 +18,14 @@ import java.util.List;
 public class LineDefRepo {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-    private static final TypeReference<List<LineDef>> TYPE_LIST_LINEDEF = new TypeReference<List<LineDef>>() {
+    private static final TypeReference<ArrayList<LineDef>> TYPE_LIST_LINEDEF = new TypeReference<ArrayList<LineDef>>() {
     };
     private static final ObjectMapper mapper = new ObjectMapper();
 
     @Value("classpath:linedefs.json")
     private URL lineDefResource;
 
-    private List<LineDef> lineDefs;
+    private ArrayList<LineDef> lineDefs;
 
     @PostConstruct
     private void initialize() throws IOException {
@@ -39,7 +38,11 @@ public class LineDefRepo {
     }
 
     public List<LineDef> lineDefs() {
-        return lineDefs;
+        return Collections.unmodifiableList(lineDefs);
+    }
+
+    public Optional<LineDef> lineDef(String subGuidId, String gdsId) {
+        return Optional.empty();
     }
 
 }

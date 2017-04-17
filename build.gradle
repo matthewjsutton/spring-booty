@@ -16,9 +16,13 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
 
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+jar {
+	baseName = "spring-booty"
+	version =  '0.0.1-SNAPSHOT'
+}
 
 repositories {
 	mavenCentral()
@@ -26,6 +30,8 @@ repositories {
 
 dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
+	compile "org.springframework.boot:spring-boot-starter-actuator"
+
 	compile "io.springfox:springfox-swagger2:2.6.1"
 	compile "io.springfox:springfox-swagger-ui:2.6.1"
 
@@ -34,7 +40,7 @@ dependencies {
 
 task buildDocker(type: Docker, dependsOn: build) {
 	baseImage = 'openjdk:8'
-	applicationName = "spring-booty"
+	applicationName = jar.baseName
 	tagVersion = "latest"
 	addFile {
 		from jar
