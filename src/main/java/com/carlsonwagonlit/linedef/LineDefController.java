@@ -30,6 +30,6 @@ public class LineDefController {
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "No LineDef found")
-    static class LineDefNotFound extends RuntimeException {
+    private static class LineDefNotFound extends RuntimeException {
     }
 }

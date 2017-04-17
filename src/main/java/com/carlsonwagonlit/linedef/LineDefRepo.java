@@ -4,55 +4,50 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
  * Repository for the LineDefs defined in the JSON file
  */
 @Repository
-public class LineDefRepo {
-    private static final TypeReference<ArrayList<LineDef>> TYPE_LIST_LINEDEF = new TypeReference<ArrayList<LineDef>>() {
-    };
-    private static final ObjectMapper mapper = new ObjectMapper();
+class LineDefRepo {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-    @Value("classpath:linedefs.json")
-    private URL lineDefResource;
+    private final Map<LineDefId, LineDef> lineDefMap;
 
-    private ArrayList<LineDef> lineDefs;
-    private LinkedHashMap<LineDefId, LineDef> lineDefMap;
+    @Autowired
+    LineDefRepo(@Value("classpath:linedefs.json") URL lineDefResource) throws IOException {
+        TypeReference<List<LineDef>> typeRef = new TypeReference<List<LineDef>>() {
+        };
+        ObjectMapper mapper = new ObjectMapper();
+        List<LineDef> lineDefs = mapper.readValue(lineDefResource, typeRef);
 
-    @PostConstruct
-    private void initialize() throws IOException {
-//        URL resource = Resources.getResource("linedefs.json");
-//        String string = Resources.toString(resource, Charsets.UTF_8);
-        //        File file = new ClassPathResource("linedefs.json").getFile();
-
-        lineDefs = mapper.readValue(lineDefResource, TYPE_LIST_LINEDEF);
         LOG.info("lineDefs=" + lineDefs);
 
-        lineDefMap = new LinkedHashMap<>(lineDefs.size());
+        LinkedHashMap<LineDefId, LineDef> map = new LinkedHashMap<>(lineDefs.size());
         for (LineDef lineDef : lineDefs) {
             LineDefId id = new LineDefId(lineDef.getSubGuidId(), lineDef.getGdsId());
-            lineDefMap.put(id, lineDef);
+            map.put(id, lineDef);
         }
+
+        lineDefMap = Collections.unmodifiableMap(map);
     }
 
-    public List<LineDef> lineDefs() {
-        return Collections.unmodifiableList(lineDefs);
+    int size() {
+        return lineDefMap.size();
     }
 
-    public Optional<LineDef> lineDef(String subGuidId, String gdsId) {
+    Optional<LineDef> lineDef(String subGuidId, String gdsId) {
         LineDef lineDef = lineDefMap.get(new LineDefId(subGuidId, gdsId));
         return Optional.ofNullable(lineDef);
     }
