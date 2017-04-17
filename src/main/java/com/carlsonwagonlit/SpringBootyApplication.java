@@ -1,13 +1,14 @@
 package com.carlsonwagonlit;
 
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.context.annotation.*;
-import springfox.documentation.builders.*;
-import springfox.documentation.service.*;
-import springfox.documentation.spi.*;
-import springfox.documentation.spring.web.plugins.*;
-import springfox.documentation.swagger2.annotations.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
@@ -18,21 +19,12 @@ public class SpringBootyApplication {
 	}
 
     @Bean
-    public Docket helloApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("hello")
-                .apiInfo(apiInfo())
-                .select()
-                .paths(PathSelectors.regex("/greeting.*"))
-                .build();
-    }
-
-    @Bean
     public Docket lineDefApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("lineDefs")
                 .apiInfo(apiInfo())
                 .select()
+//                .paths(PathSelectors.any())
                 .paths(PathSelectors.regex("/lineDef.*"))
                 .build();
     }
