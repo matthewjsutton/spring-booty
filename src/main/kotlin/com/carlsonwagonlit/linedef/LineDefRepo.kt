@@ -3,7 +3,6 @@ package com.carlsonwagonlit.linedef
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 import java.net.URL
@@ -15,7 +14,7 @@ import java.util.Optional
  * Repository for the LineDefs defined in the JSON file
  */
 @Repository
-class LineDefRepo @Autowired constructor(@Value("classpath:linedefs.json") private val lineDefResource: URL) {
+class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource: URL) {
     private val LOG = LoggerFactory.getLogger(javaClass)
 
     private val lineDefMap = initLineDefMap()

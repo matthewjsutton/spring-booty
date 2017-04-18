@@ -3,7 +3,6 @@ package com.carlsonwagonlit.linedef
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiResponse
 import io.swagger.annotations.ApiResponses
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
@@ -15,10 +14,7 @@ import org.springframework.web.bind.annotation.RestController
  * REST Controller for LineDefs
  */
 @RestController
-class LineDefController {
-
-    @Autowired
-    private lateinit var repo: LineDefRepo
+class LineDefController(val repo: LineDefRepo) {
 
     @RequestMapping(method = arrayOf(RequestMethod.GET), path = arrayOf("/lineDef"), produces = arrayOf("application/json"))
     @ApiOperation(value = "getLineDef", nickname = "getLineDef")
