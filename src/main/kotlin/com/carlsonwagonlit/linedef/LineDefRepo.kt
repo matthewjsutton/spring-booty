@@ -48,6 +48,7 @@ class LineDefRepo @Autowired constructor(@Value("classpath:linedefs.json") priva
         val id = LineDefId(subGuidId, gdsId)
         return Optional.ofNullable(lineDefMap[id])
     }
+
+    private data class LineDefId(val subGuidId: String, val gdsId: String)
 }
 
-private data class LineDefId(val subGuidId: String, val gdsId: String)

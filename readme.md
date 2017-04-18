@@ -35,12 +35,9 @@ Remove dangling images: `docker rmi $(docker images --filter "dangling=true" -q 
     * http://heidloff.net/article/usage-of-swagger-2-0-in-spring-boot-applications-to-document-apis/
 4. Add docker integration
     * https://geowarin.github.io/spring-boot-app-in-docker-image.html
+5. Added Kotlin integration
 
 ## Next
 
-* Tests
 * Jenkins configuration in project
-* Logging
 * Configuration service / Spring Cloud Consul
-* Health check
-* AutoValue
