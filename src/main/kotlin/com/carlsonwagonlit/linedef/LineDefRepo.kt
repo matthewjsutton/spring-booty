@@ -34,20 +34,21 @@ class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource:
 
         val map = LinkedHashMap<LineDefId, LineDef>(lineDefs.size)
         lineDefs.forEach {
-            if (it.subGuidId.isEmpty() || it.gdsId.isEmpty()) {
-                throw IllegalArgumentException("'subGuidId' and 'gdsId' cannot be empty")
-            }
-            val id = LineDefId(it.subGuidId, it.gdsId)
+            require(it.topGuidId.isNotEmpty())
+            require(it.subGuidId.isNotEmpty())
+            require(it.gdsId.isNotEmpty())
+
+            val id = LineDefId(it.topGuidId, it.subGuidId, it.gdsId)
             val prev = map.put(id, it)
             if (prev != null) {
                 throw IllegalArgumentException("Duplicate LineDef found, id=$id")
             }
-            val sources: List<String> = it.fields.map { it.source }
-            if (sources.any(String::isEmpty)) {
-                throw IllegalArgumentException("LineDef id=$id has field with empty 'source'")
+            val sourceIds: List<String> = it.fields.map { it.sourceId }
+            if (sourceIds.any(String::isEmpty)) {
+                throw IllegalArgumentException("LineDef id=$id has field with empty 'sourceId'")
             }
-            if (sources.size != HashSet(sources).size) {
-                throw IllegalArgumentException("LineDef id=$id has a duplicate source")
+            if (sourceIds.size != HashSet(sourceIds).size) {
+                throw IllegalArgumentException("LineDef id=$id has a duplicate sourceId")
             }
         }
 
@@ -58,11 +59,11 @@ class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource:
 
     fun size(): Int = lineDefMap.size
 
-    fun lineDef(subGuidId: String, gdsId: String): Optional<LineDef> {
-        val id = LineDefId(subGuidId, gdsId)
+    fun lineDef(topGuidId: String, subGuidId: String, gdsId: String): Optional<LineDef> {
+        val id = LineDefId(topGuidId, subGuidId, gdsId)
         return Optional.ofNullable(lineDefMap[id])
     }
 
-    private data class LineDefId(val subGuidId: String, val gdsId: String)
+    private data class LineDefId(val topGuidId: String, val subGuidId: String, val gdsId: String)
 }
 

@@ -22,8 +22,8 @@ class LineDefController(val repo: LineDefRepo) {
             ApiResponse(code = 200, message = "Success", response = LineDef::class),
             ApiResponse(code = 404, message = "LineDef not found")
     ))
-    fun lineDef(@RequestParam subGuidId: String, @RequestParam gdsId: String): LineDef {
-        return repo.lineDef(subGuidId, gdsId).orElseThrow({ LineDefNotFound() })
+    fun lineDef(@RequestParam topGuidId: String, @RequestParam subGuidId: String, @RequestParam gdsId: String): LineDef {
+        return repo.lineDef(topGuidId, subGuidId, gdsId).orElseThrow({ LineDefNotFound() })
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "No LineDef found")

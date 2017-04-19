@@ -6,13 +6,14 @@ import java.util.Collections
  * Jackson requires a no-argument constructor, so all fields are vars with default arguments
  */
 data class LineDef(
+        var topGuidId: String = "",
         var subGuidId: String = "",
         var gdsId: String = "",
         var fields: List<LineDefFields> = Collections.emptyList()
 )
 
 data class LineDefFields(
-        var source: String = "",
+        var sourceId: String = "",
         var topGuid: String = "",
         var subGuid: String = "",
         var travelerType: String = "",

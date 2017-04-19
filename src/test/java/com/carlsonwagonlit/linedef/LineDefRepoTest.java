@@ -2,7 +2,9 @@ package com.carlsonwagonlit.linedef;
 
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,35 +28,46 @@ public class LineDefRepoTest {
         Assert.assertTrue("Repo should have content", repo.size() > 0);
     }
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Value("classpath:linedefs-dupe-id.json")
     private URL dupeIdJson;
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void rejectDupeIds() throws IOException {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Duplicate LineDef found");
         new LineDefRepo(dupeIdJson);
     }
 
     @Value("classpath:linedefs-dupe-source.json")
     private URL dupeSourceJson;
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void rejectDupeSources() throws IOException {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("has a duplicate sourceId");
         new LineDefRepo(dupeSourceJson);
     }
 
     @Value("classpath:linedefs-no-id.json")
     private URL noIdJson;
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void rejectNoId() throws IOException {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Failed requirement.");
         new LineDefRepo(noIdJson);
     }
 
     @Value("classpath:linedefs-no-source.json")
     private URL noSourceJson;
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void rejectNoSource() throws IOException {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("has field with empty 'sourceId'");
         new LineDefRepo(noSourceJson);
     }
 

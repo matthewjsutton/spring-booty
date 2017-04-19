@@ -1,6 +1,7 @@
 [
   {
-    "subGuidId": "37d97847-dd81-4a03-8325-694b4d836cb0",
+    "topGuidId": "12:3456",
+    "subGuidId": "ab:cdef",
     "gdsId": "apollo",
     "unknownKey": "<-- key not in model"
   }

@@ -1,14 +1,15 @@
 [
   {
-    "subGuidId": "cebda32b-ad63-4591-b381-88e73849456d",
+    "topGuidId": "12:3456",
+    "subGuidId": "ab:cdef",
     "gdsId": "apollo",
     "fields": [
       {
-        "source": "GPM Tools",
+        "sourceId": "GPM Tools",
         "topGuid": "gpm tools defined once"
       },
       {
-        "source": "GPM Tools",
+        "sourceId": "GPM Tools",
         "subGuid": "gpm tools defined twice!"
       }
     ]

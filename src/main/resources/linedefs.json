@@ -1,10 +1,11 @@
 [
   {
-    "subGuidId": "37d97847-dd81-4a03-8325-694b4d836cb0",
+    "topGuidId": "ab:1234",
+    "subGuidId": "cd:5678",
     "gdsId": "apollo",
     "fields": [
       {
-        "source": "GPM Tools",
+        "sourceId": "GPM Tools",
         "topGuid": "#GUID/CT-",
         "subGuid": "#GUID/CT-##:####/SU-",
         "travelerType": "?TRVLR TYPE",
@@ -20,12 +21,13 @@
         "arrangerEmail": "?ARR*E-"
       },
       {
-        "source": "Powerbase",
+        "sourceId": "Powerbase",
         "airfareReasonCode": "?X/-FS",
         "costCenter": "?U*9",
         "travelReason": "?U*10",
         "hotelReasonCode": "?U*11",
         "carReasonCode": "?U*12",
+        "travelerEmail": "?PAX*E-",
         "authorizerEmail": "?U*4",
         "authorizerEmails1x": [
           "?ARR1.1*E-",
@@ -35,11 +37,12 @@
     ]
   },
   {
-    "subGuidId": "cebda32b-ad63-4591-b381-88e73849456d",
+    "topGuidId": "ab:1234",
+    "subGuidId": "98:7654",
     "gdsId": "apollo",
     "fields": [
       {
-        "source": "GPM Tools",
+        "sourceId": "GPM Tools",
         "topGuid": "#GUID/CT-",
         "subGuid": "#GUID/CT-##:####/SU-",
         "travelerType": "?TRVLR TYPE",
