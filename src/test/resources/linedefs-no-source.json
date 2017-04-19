@@ -4,7 +4,7 @@
     "gdsId": "apollo",
     "fields": [
       {
-        "airfareReasonCode": "?X/-FS"
+        "airfareReasonCode": "'source' is required"
       }
     ]
   }

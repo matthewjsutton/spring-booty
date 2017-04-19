@@ -13,8 +13,6 @@
   * There is one field, authorizerEmail which is required
   * There are three lists, authorizerEmails1x, authorizerEmails2x, authorizerEmails3x, which can have any number of elements (including being empty)
 * All fields aside from Authorizer Email lists are free-form strings (no dates, numbers, etc.)
-* All fields are required and cannot be empty (aside from AuthorizeEmail lists)
 * Source fields
-  * Every field (aside from the identity fields subGuidId and gdsId) has a “Source” counterpart (e.g., travelerType, travelerTypeSource)
-  * This field is not a definition but links the corresponding field to its source
-  * This is also free form field, we won’t ensure sources are valid (writing “Towerbase” rather than “Powerbase” won’t be an error)
+  * Fields values may come from separate sources; therefore each source has its own element
+  * Each source can be used only once, two field elements cannot have the same source

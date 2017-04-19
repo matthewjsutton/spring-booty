@@ -5,11 +5,11 @@
     "fields": [
       {
         "source": "GPM Tools",
-        "topGuid": "#GUID/CT-"
+        "topGuid": "gpm tools defined once"
       },
       {
         "source": "GPM Tools",
-        "subGuid": "#GUID/CT-##:####/SU-"
+        "subGuid": "gpm tools defined twice!"
       }
     ]
   }
