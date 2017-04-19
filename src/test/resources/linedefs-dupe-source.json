@@ -1,0 +1,17 @@
+[
+  {
+    "subGuidId": "cebda32b-ad63-4591-b381-88e73849456d",
+    "gdsId": "apollo",
+    "fields": [
+      {
+        "source": "GPM Tools",
+        "topGuid": "#GUID/CT-"
+      },
+      {
+        "source": "GPM Tools",
+        "subGuid": "#GUID/CT-##:####/SU-"
+      }
+    ]
+  }
+]
+

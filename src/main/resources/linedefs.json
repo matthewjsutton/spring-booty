@@ -2,86 +2,69 @@
   {
     "subGuidId": "37d97847-dd81-4a03-8325-694b4d836cb0",
     "gdsId": "apollo",
-    "topGuid": "#GUID/CT-",
-    "topGuidSource": "GPM Tools",
-    "subGuid": "#GUID/CT-##:####/SU-",
-    "subGuidSource": "GPM Tools",
-    "travelerType": "?TRVLR TYPE",
-    "travelerTypeSource": "GPM Tools",
-    "airfareReasonCode": "?X/-FS",
-    "airfareReasonCodeSource": "Powerbase",
-    "lowestFare": "?X/-LP",
-    "lowestFareSource": "GPM Tools",
-    "costCenter": "?U*9",
-    "costCenterSource": "Powerbase",
-    "travelReason": "?U*10",
-    "travelReasonSource": "Powerbase",
-    "hotelReasonCode": "?U*11",
-    "hotelReasonCodeSource": "Powerbase",
-    "carReasonCode": "?U*12",
-    "carReasonCodeSource": "Powerbase",
-    "authorizerEmail": "?U*4",
-    "authorizerEmailSource": "Powerbase",
-    "authorizerEmails1x": [
-      "?ARR1.1*E-",
-      "?ARR1.2*E-"
-    ],
-    "authorizerEmails1xSource": "Powerbase",
-    "authorizerEmails2x": [
-      "?ARR2.1*E-"
-    ],
-    "authorizerEmails2xSource": "GPM Tools",
-    "authorizerEmails3x": [
-      "?ARR3.1*E-",
-      "?ARR3.2*E-"
-    ],
-    "authorizerEmails3xSource": "GPM Tools",
-    "travelerEmail": "?PAX*E-",
-    "travelerEmailSource": "GPM Tools",
-    "arrangerEmail": "?ARR*E-",
-    "arrangerEmailSource": "GPM Tools"
+    "fields": [
+      {
+        "source": "GPM Tools",
+        "topGuid": "#GUID/CT-",
+        "subGuid": "#GUID/CT-##:####/SU-",
+        "travelerType": "?TRVLR TYPE",
+        "lowestFare": "?X/-LP",
+        "authorizerEmails2x": [
+          "?ARR2.1*E-"
+        ],
+        "authorizerEmails3x": [
+          "?ARR3.1*E-",
+          "?ARR3.2*E-"
+        ],
+        "travelerEmail": "?PAX*E-",
+        "arrangerEmail": "?ARR*E-"
+      },
+      {
+        "source": "Powerbase",
+        "airfareReasonCode": "?X/-FS",
+        "costCenter": "?U*9",
+        "travelReason": "?U*10",
+        "hotelReasonCode": "?U*11",
+        "carReasonCode": "?U*12",
+        "authorizerEmail": "?U*4",
+        "authorizerEmails1x": [
+          "?ARR1.1*E-",
+          "?ARR1.2*E-"
+        ]
+      }
+    ]
   },
   {
     "subGuidId": "cebda32b-ad63-4591-b381-88e73849456d",
     "gdsId": "apollo",
-    "topGuid": "#GUID/CT-",
-    "topGuidSource": "GPM Tools",
-    "subGuid": "#GUID/CT-##:####/SU-",
-    "subGuidSource": "GPM Tools",
-    "travelerType": "?TRVLR TYPE",
-    "travelerTypeSource": "GPM Tools",
-    "airfareReasonCode": "?X/-FS",
-    "airfareReasonCodeSource": "Powerbase",
-    "lowestFare": "?X/-LP",
-    "lowestFareSource": "GPM Tools",
-    "costCenter": "?U*9",
-    "costCenterSource": "Powerbase",
-    "travelReason": "?U*10",
-    "travelReasonSource": "Powerbase",
-    "hotelReasonCode": "?U*11",
-    "hotelReasonCodeSource": "Powerbase",
-    "carReasonCode": "?U*12",
-    "carReasonCodeSource": "Powerbase",
-    "authorizerEmail": "?U*4",
-    "authorizerEmailSource": "Powerbase",
-    "authorizerEmails1x": [
-      "?ARR1.1*E-",
-      "?ARR1.2*E-"
-    ],
-    "authorizerEmails1xSource": "Powerbase",
-    "authorizerEmails2x": [
-      "?ARR2.1*E-"
-    ],
-    "authorizerEmails2xSource": "GPM Tools",
-    "authorizerEmails3x": [
-      "?ARR3.1*E-",
-      "?ARR3.2*E-"
-    ],
-    "authorizerEmails3xSource": "GPM Tools",
-    "travelerEmail": "?PAX*E-",
-    "travelerEmailSource": "GPM Tools",
-    "arrangerEmail": "?ARR*E-",
-    "arrangerEmailSource": "GPM Tools"
+    "fields": [
+      {
+        "source": "GPM Tools",
+        "topGuid": "#GUID/CT-",
+        "subGuid": "#GUID/CT-##:####/SU-",
+        "travelerType": "?TRVLR TYPE",
+        "lowestFare": "?X/-LP",
+        "authorizerEmail": "?U*4",
+        "authorizerEmails1x": [
+          "?ARR1.1*E-",
+          "?ARR1.2*E-"
+        ],
+        "authorizerEmails2x": [
+          "?ARR2.1*E-"
+        ],
+        "authorizerEmails3x": [
+          "?ARR3.1*E-",
+          "?ARR3.2*E-"
+        ],
+        "travelerEmail": "?PAX*E-",
+        "arrangerEmail": "?ARR*E-",
+        "airfareReasonCode": "?X/-FS",
+        "costCenter": "?U*9",
+        "travelReason": "?U*10",
+        "hotelReasonCode": "?U*11",
+        "carReasonCode": "?U*12"
+      }
+    ]
   }
 ]
 

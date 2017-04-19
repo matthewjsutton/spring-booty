@@ -26,20 +26,44 @@ public class LineDefRepoTest {
         Assert.assertTrue("Repo should have content", repo.size() > 0);
     }
 
-    @Value("classpath:linedefs-dupe.json")
-    private URL dupeJson;
+    @Value("classpath:linedefs-dupe-id.json")
+    private URL dupeIdJson;
 
     @Test(expected = IllegalArgumentException.class)
-    public void rejectJsonWithDupes() throws IOException {
-        new LineDefRepo(dupeJson);
+    public void rejectDupeIds() throws IOException {
+        new LineDefRepo(dupeIdJson);
     }
 
-    @Value("classpath:linedefs-invalid-element.json")
-    private URL invalidElementJson;
+    @Value("classpath:linedefs-dupe-source.json")
+    private URL dupeSourceJson;
+
+    @Test(expected = IllegalArgumentException.class)
+    public void rejectDupeSources() throws IOException {
+        new LineDefRepo(dupeSourceJson);
+    }
+
+    @Value("classpath:linedefs-no-id.json")
+    private URL noIdJson;
+
+    @Test(expected = IllegalArgumentException.class)
+    public void rejectNoId() throws IOException {
+        new LineDefRepo(noIdJson);
+    }
+
+    @Value("classpath:linedefs-no-source.json")
+    private URL noSourceJson;
+
+    @Test(expected = IllegalArgumentException.class)
+    public void rejectNoSource() throws IOException {
+        new LineDefRepo(noSourceJson);
+    }
+
+    @Value("classpath:linedefs-unknown-key.json")
+    private URL unknownKeyJson;
 
     @Test(expected = UnrecognizedPropertyException.class)
-    public void rejectInvalidElement() throws IOException {
-        new LineDefRepo(invalidElementJson);
+    public void rejectUnknownKey() throws IOException {
+        new LineDefRepo(unknownKeyJson);
     }
 
 }
