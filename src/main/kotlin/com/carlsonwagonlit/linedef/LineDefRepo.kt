@@ -34,17 +34,15 @@ class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource:
 
         val map = LinkedHashMap<LineDefId, LineDef>(lineDefs.size)
         lineDefs.forEach {
-            require(it.topGuidId.isNotEmpty())
-            require(it.subGuidId.isNotEmpty())
-            require(it.gdsId.isNotEmpty())
+            require(it.topGuidId.isNotBlank() && it.subGuidId.isNotBlank() && it.gdsId.isNotBlank())
 
             val id = LineDefId(it.topGuidId, it.subGuidId, it.gdsId)
             val prev = map.put(id, it)
             if (prev != null) {
                 throw IllegalArgumentException("Duplicate LineDef found, id=$id")
             }
-            val sourceIds: List<String> = it.fields.map { it.sourceId }
-            if (sourceIds.any(String::isEmpty)) {
+            val sourceIds = it.fields.map { it.sourceId }
+            if (sourceIds.any(String::isBlank)) {
                 throw IllegalArgumentException("LineDef id=$id has field with empty 'sourceId'")
             }
             if (sourceIds.size != HashSet(sourceIds).size) {
