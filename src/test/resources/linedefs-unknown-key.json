@@ -1,0 +1,9 @@
+[
+  {
+    "topGuidId": "12:3456",
+    "subGuidId": "ab:cdef",
+    "gdsId": "apollo",
+    "unknownKey": "<-- key not in model"
+  }
+]
+

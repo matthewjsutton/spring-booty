@@ -1,0 +1,13 @@
+[
+  {
+    "topGuidId": "12:3456",
+    "subGuidId": "ab:cdef",
+    "gdsId": "apollo",
+    "fields": [
+      {
+        "airfareReasonCode": "'sourceId' is required"
+      }
+    ]
+  }
+]
+

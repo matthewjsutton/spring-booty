@@ -23,16 +23,32 @@ class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource:
         val typeRef = object : TypeReference<List<LineDef>>() {}
         val mapper = ObjectMapper()
 
+        // If we want the flexibility to add new fields at the cost of compile-time check:
+        // 1) remove unit test "rejectUnknownKey"
+        // 2) uncomment line below
+//        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+
         val lineDefs: List<LineDef> = mapper.readValue(lineDefResource, typeRef)
 
         LOG.info("lineDefs=" + lineDefs)
 
         val map = LinkedHashMap<LineDefId, LineDef>(lineDefs.size)
         lineDefs.forEach {
-            val id = LineDefId(it.subGuidId, it.gdsId)
+            require(it.topGuidId.isNotEmpty())
+            require(it.subGuidId.isNotEmpty())
+            require(it.gdsId.isNotEmpty())
+
+            val id = LineDefId(it.topGuidId, it.subGuidId, it.gdsId)
             val prev = map.put(id, it)
             if (prev != null) {
                 throw IllegalArgumentException("Duplicate LineDef found, id=$id")
+            }
+            val sourceIds: List<String> = it.fields.map { it.sourceId }
+            if (sourceIds.any(String::isEmpty)) {
+                throw IllegalArgumentException("LineDef id=$id has field with empty 'sourceId'")
+            }
+            if (sourceIds.size != HashSet(sourceIds).size) {
+                throw IllegalArgumentException("LineDef id=$id has a duplicate sourceId")
             }
         }
 
@@ -43,11 +59,11 @@ class LineDefRepo(@Value("classpath:linedefs.json") private val lineDefResource:
 
     fun size(): Int = lineDefMap.size
 
-    fun lineDef(subGuidId: String, gdsId: String): Optional<LineDef> {
-        val id = LineDefId(subGuidId, gdsId)
+    fun lineDef(topGuidId: String, subGuidId: String, gdsId: String): Optional<LineDef> {
+        val id = LineDefId(topGuidId, subGuidId, gdsId)
         return Optional.ofNullable(lineDefMap[id])
     }
 
-    private data class LineDefId(val subGuidId: String, val gdsId: String)
+    private data class LineDefId(val topGuidId: String, val subGuidId: String, val gdsId: String)
 }
 
