@@ -19,7 +19,7 @@ Swagger: `http://localhost:8080/swagger-ui.html`
 
 Build docker image: `./gradlew buildDocker`
 
-Run docker image: `docker run -p 8080:8080 spring-booty:0.0.1-SNAPSHOT`
+Run docker image: `docker run -p 8080:8080 spring-booty:latest`
 
 Remove stopped docker containers: `docker rm $(docker ps -a -q)`
 

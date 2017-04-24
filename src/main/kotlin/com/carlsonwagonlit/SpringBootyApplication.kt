@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 /**
- * Spring Boot and Swagger 2 setup.
+ * Spring Boot and Swagger 2 setup.  Spring + Kotlin integration requires using open classes and functions
  */
 @SpringBootApplication
 @EnableSwagger2
