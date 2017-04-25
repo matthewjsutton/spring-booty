@@ -49,7 +49,7 @@ dependencies {
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
-	baseImage = 'openjdk:8'
+	baseImage = 'openjdk:8-alpine'
 	applicationName = jar.baseName
 	tagVersion = "latest"
 	addFile {
