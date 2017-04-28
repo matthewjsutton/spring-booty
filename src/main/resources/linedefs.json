@@ -1,73 +1,27 @@
 [
   {
-    "topGuidId": "ab:1234",
-    "subGuidId": "cd:5678",
+    "topGuidId": "14:205987",
+    "subGuidId": "14:2057A2",
     "gdsId": "sabre",
     "fields": [
       {
         "sourceId": "GPM Tools",
-        "topGuid": "#GUID/CT-",
-        "subGuid": "#GUID/CT-##:####/SU-",
-        "travelerType": "?TRVLR TYPE",
-        "lowestFare": "?X/-LP",
-        "authorizerEmails2x": [
-          "?ARR2.1*E-"
-        ],
-        "authorizerEmails3x": [
-          "?ARR3.1*E-",
-          "?ARR3.2*E-"
-        ],
-        "travelerEmail": "?PAX*E-",
-        "arrangerEmail": "?ARR*E-"
+        "topGuid": "*GUID/CT-%r/SU-*",
+        "subGuid": "*/SU-%r",
+        "travelerType": "*TRVLR TYPE-%r",
+        "airfareReasonCode": "*X/-FS/%r",
+        "lowestFare": "*X/-LP/%r",
+        "travelerEmail": "*U**28-%r",
+        "authorizerEmails1x": [
+          "*U**47-%r",
+        ]
       },
       {
         "sourceId": "Powerbase",
-        "airfareReasonCode": "?X/-FS",
-        "costCenter": "?U*9",
-        "travelReason": "?U*10",
-        "hotelReasonCode": "?U*11",
-        "carReasonCode": "?U*12",
-        "travelerEmail": "?PAX*E-",
-        "authorizerEmail": "?U*4",
-        "authorizerEmails1x": [
-          "?ARR1.1*E-",
-          "?ARR1.2*E-"
-        ]
+        "costCenter": "*U**4-%r",
+        "travelReason": "*U**6-%r",
+        "hotelReasonCode": "*U**14-%r"
       }
     ]
   },
-  {
-    "topGuidId": "ab:1234",
-    "subGuidId": "98:7654",
-    "gdsId": "apollo",
-    "fields": [
-      {
-        "sourceId": "GPM Tools",
-        "topGuid": "#GUID/CT-",
-        "subGuid": "#GUID/CT-##:####/SU-",
-        "travelerType": "?TRVLR TYPE",
-        "lowestFare": "?X/-LP",
-        "authorizerEmail": "?U*4",
-        "authorizerEmails1x": [
-          "?ARR1.1*E-",
-          "?ARR1.2*E-"
-        ],
-        "authorizerEmails2x": [
-          "?ARR2.1*E-"
-        ],
-        "authorizerEmails3x": [
-          "?ARR3.1*E-",
-          "?ARR3.2*E-"
-        ],
-        "travelerEmail": "?PAX*E-",
-        "arrangerEmail": "?ARR*E-",
-        "airfareReasonCode": "?X/-FS",
-        "costCenter": "?U*9",
-        "travelReason": "?U*10",
-        "hotelReasonCode": "?U*11",
-        "carReasonCode": "?U*12"
-      }
-    ]
-  }
 ]
-
